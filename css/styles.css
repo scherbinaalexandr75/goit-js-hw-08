@@ -1,0 +1,25 @@
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+.gallery{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+column-gap: 24px;
+row-gap: 24px;
+margin-top: 24px;
+margin-bottom: 24px;
+margin-left: 156px;
+margin-right: 156px;
+}
+
+.gallery-image{
+  
+
+  width: 360px;
+  height:200px;
+
+}
