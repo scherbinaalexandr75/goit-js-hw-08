@@ -69,10 +69,30 @@ const classGallery = document.querySelector(".gallery");
 const newImages = (images) => {
   const imgItems = images.map(
     (img) =>
-      `<li class="items"><a class="gallery-link" href="${img.original}"><img class = "gallery-image" src="${img.preview}" data-source = "${img.original}" alt="${img.description}"/></li>`
+      `<li class="gallery-item"><a class="gallery-link" href="${img.original}"> <img class = "gallery-image" src="${img.preview}" data-source = "${img.original}" alt="${img.description}"/></a></li>`
   );
 
   classGallery.insertAdjacentHTML("afterbegin", imgItems.join(""));
+
+  classGallery.addEventListener("click", function (event) {
+    event.preventDefault();
+    
+    if (event.target.nodeName === "IMG") {
+      const instance = basicLightbox.create(
+        `
+      <img
+            class="gallery-image"
+            src="${event.target.dataset.source}"
+        />
+      `,
+        {
+          closable: true,
+        }
+      );
+      instance.show();
+    }
+    
+  });
 };
 
 newImages(images);
